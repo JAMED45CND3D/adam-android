@@ -362,12 +362,14 @@ async function sendSticker(emoji){
   await sendToADAM(emoji);
 }
 
-async function sendToADAM(text, displayText){
+async function sendToADAM(text, displayText, image_b64){
   document.getElementById('emptyEl')?.remove();
   addBubble('user', displayText||text);
   const tEl=addTyping();scrollBot();
   try{
-    const r=await fetch(`${HOST}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID,message:text})});
+    const body={session_id:SID,message:text};
+    if(image_b64) body.image_b64=image_b64;
+    const r=await fetch(`${HOST}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const d=await r.json();tEl.remove();
     addBubble('adam',d.response,{affect:d.affect,theta:d.theta});
     if(d.meta?.narrative)document.getElementById('sNarr').textContent=d.meta.narrative;
@@ -417,7 +419,7 @@ function handlePhoto(e){
     const b64=ev.target.result;
     document.getElementById('emptyEl')?.remove();
     addBubble('user','📷 foto',null,b64);
-    sendToADAM('[user mengirim foto]','📷 foto');
+    sendToADAM('lihat foto ini dan ceritakan apa yang kamu rasakan','📷 foto',b64);
   };
   reader.readAsDataURL(file);
   e.target.value='';
