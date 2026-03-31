@@ -3,59 +3,78 @@ package com.adamshell.app
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.webkit.PermissionRequest
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
+    private var fileCallback: ValueCallback<Array<Uri>>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        requestPerms()
+        startADAMService()
+        setupWebView()
+    }
 
-        requestPermissions()
+    private fun startADAMService() {
+        val intent = Intent(this, ADAMService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            startForegroundService(intent)
+        else startService(intent)
+    }
 
-        val serviceIntent = Intent(this, ADAMService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent)
-        } else {
-            startService(serviceIntent)
-        }
-
+    private fun setupWebView() {
         webView = findViewById(R.id.webview)
-        val settings: WebSettings = webView.settings
-        settings.javaScriptEnabled = true
-        settings.domStorageEnabled = true
-        settings.allowFileAccess = true
-        settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-        settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        settings.mediaPlaybackRequiresUserGesture = false
-        settings.allowFileAccessFromFileURLs = true
-        settings.allowUniversalAccessFromFileURLs = true
-
+        webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            allowFileAccess = true
+            allowContentAccess = true
+            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            cacheMode = WebSettings.LOAD_NO_CACHE
+            mediaPlaybackRequiresUserGesture = false
+        }
         webView.webViewClient = WebViewClient()
         webView.webChromeClient = object : WebChromeClient() {
             override fun onPermissionRequest(request: PermissionRequest) {
                 request.grant(request.resources)
             }
+            override fun onShowFileChooser(
+                view: WebView?,
+                callback: ValueCallback<Array<Uri>>?,
+                params: FileChooserParams?
+            ): Boolean {
+                fileCallback = callback
+                val intent = params?.createIntent() ?: return false
+                startActivityForResult(intent, 1001)
+                return true
+            }
         }
         webView.loadUrl("file:///android_asset/index.html")
     }
 
-    private fun requestPermissions() {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1001) {
+            val results = if (data != null) arrayOf(data.data ?: return) else null
+            fileCallback?.onReceiveValue(results)
+            fileCallback = null
+        }
+    }
+
+    private fun requestPerms() {
         val perms = mutableListOf(
             Manifest.permission.CAMERA,
             Manifest.permission.RECORD_AUDIO
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= 33) {
             perms.add(Manifest.permission.READ_MEDIA_IMAGES)
         } else {
             perms.add(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -63,9 +82,8 @@ class MainActivity : AppCompatActivity() {
         val denied = perms.filter {
             ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
         }
-        if (denied.isNotEmpty()) {
-            ActivityCompat.requestPermissions(this, denied.toTypedArray(), 1)
-        }
+        if (denied.isNotEmpty())
+            ActivityCompat.requestPermissions(this, denied.toTypedArray(), 100)
     }
 
     override fun onBackPressed() {
