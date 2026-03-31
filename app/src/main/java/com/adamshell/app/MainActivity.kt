@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         settings.cacheMode = WebSettings.LOAD_NO_CACHE
         settings.mediaPlaybackRequiresUserGesture = false
+        settings.allowFileAccessFromFileURLs = true
+        settings.allowUniversalAccessFromFileURLs = true
 
         webView.webViewClient = WebViewClient()
         webView.webChromeClient = object : WebChromeClient() {
