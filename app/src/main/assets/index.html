@@ -22,237 +22,51 @@ body{
   background:#05080f;
 }
 
-/* ═══ SCENE ═══ */
-
-/* Dark room interior */
-.room {
-  position:fixed;inset:0;z-index:0;
-  background:
-    /* ceiling dark */
-    linear-gradient(180deg, #040608 0%, #060c14 15%, #080e18 30%, #04080f 100%);
-}
-
-/* Floor reflection */
-.floor {
-  position:fixed;bottom:0;left:0;right:0;height:25%;z-index:1;
-  background:linear-gradient(180deg,
-    transparent 0%,
-    rgba(0,40,100,0.15) 40%,
-    rgba(0,60,140,0.25) 100%);
-}
-
-/* The oval window - main scene */
-.window-frame {
-  position:fixed;
-  bottom: -8%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  height: 72%;
-  border-radius: 50% 50% 0 0 / 55% 55% 0 0;
-  overflow: hidden;
-  z-index: 2;
-  box-shadow:
-    0 0 0 2px rgba(60,120,200,0.3),
-    0 0 0 4px rgba(30,80,160,0.15),
-    0 0 60px rgba(0,100,255,0.12),
-    inset 0 0 80px rgba(0,30,80,0.3);
-}
-
-/* Sky inside window */
-.window-sky {
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,
-    #010814 0%,
-    #020d1e 20%,
-    #030f25 35%,
-    #05142e 50%,
-    #071830 65%,
-    #091c35 80%,
-    #0a1e38 100%);
-}
-
-/* Mountain silhouettes */
-.mountains {
-  position:absolute;bottom:28%;left:0;right:0;height:35%;
-  background:
-    /* far mountain left */
-    radial-gradient(ellipse 40% 60% at 15% 100%, #0a1828 0%, transparent 70%),
-    /* far mountain right */
-    radial-gradient(ellipse 40% 55% at 85% 100%, #0c1e30 0%, transparent 70%),
-    /* center mountain */
-    radial-gradient(ellipse 30% 80% at 50% 120%, #060e1a 0%, transparent 60%);
-}
-
-/* City grid lights */
-.city-grid {
-  position:absolute;bottom:18%;left:0;right:0;height:30%;
-  background:
-    /* warm street lights scattered */
-    radial-gradient(1px 2px at 8% 70%, rgba(255,180,60,0.9) 0%,transparent 100%),
-    radial-gradient(1px 1px at 11% 80%, rgba(255,160,40,0.7) 0%,transparent 100%),
-    radial-gradient(2px 1px at 15% 65%, rgba(255,200,80,0.8) 0%,transparent 100%),
-    radial-gradient(1px 2px at 19% 75%, rgba(0,160,255,0.7) 0%,transparent 100%),
-    radial-gradient(1px 1px at 23% 85%, rgba(255,170,50,0.6) 0%,transparent 100%),
-    radial-gradient(2px 2px at 27% 68%, rgba(100,210,255,0.8) 0%,transparent 100%),
-    radial-gradient(1px 1px at 31% 78%, rgba(255,180,60,0.7) 0%,transparent 100%),
-    radial-gradient(2px 1px at 35% 72%, rgba(0,180,255,0.8) 0%,transparent 100%),
-    radial-gradient(1px 2px at 39% 82%, rgba(255,160,50,0.6) 0%,transparent 100%),
-    radial-gradient(2px 2px at 43% 66%, rgba(120,220,255,0.8) 0%,transparent 100%),
-    radial-gradient(1px 1px at 47% 76%, rgba(255,190,70,0.7) 0%,transparent 100%),
-    radial-gradient(1px 2px at 51% 70%, rgba(0,170,255,0.8) 0%,transparent 100%),
-    radial-gradient(2px 1px at 55% 80%, rgba(255,170,50,0.6) 0%,transparent 100%),
-    radial-gradient(1px 2px at 59% 68%, rgba(80,200,255,0.8) 0%,transparent 100%),
-    radial-gradient(2px 1px at 63% 78%, rgba(255,180,60,0.7) 0%,transparent 100%),
-    radial-gradient(1px 1px at 67% 72%, rgba(0,190,255,0.8) 0%,transparent 100%),
-    radial-gradient(2px 2px at 71% 82%, rgba(255,160,50,0.6) 0%,transparent 100%),
-    radial-gradient(1px 2px at 75% 66%, rgba(100,215,255,0.8) 0%,transparent 100%),
-    radial-gradient(1px 1px at 79% 76%, rgba(255,185,65,0.7) 0%,transparent 100%),
-    radial-gradient(2px 1px at 83% 70%, rgba(0,175,255,0.8) 0%,transparent 100%),
-    radial-gradient(1px 2px at 87% 80%, rgba(255,170,55,0.6) 0%,transparent 100%),
-    radial-gradient(2px 2px at 91% 68%, rgba(90,210,255,0.7) 0%,transparent 100%);
-  animation: cityflicker 3s ease-in-out infinite alternate;
-}
+.room{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#040608 0%,#060c14 15%,#080e18 30%,#04080f 100%)}
+.floor{position:fixed;bottom:0;left:0;right:0;height:25%;z-index:1;background:linear-gradient(180deg,transparent 0%,rgba(0,40,100,0.15) 40%,rgba(0,60,140,0.25) 100%)}
+.window-frame{position:fixed;bottom:-8%;left:50%;transform:translateX(-50%);width:95%;height:72%;border-radius:50% 50% 0 0/55% 55% 0 0;overflow:hidden;z-index:2;box-shadow:0 0 0 2px rgba(60,120,200,0.3),inset 0 0 80px rgba(0,30,80,0.3)}
+.window-sky{position:absolute;inset:0;background:linear-gradient(180deg,#010814 0%,#020d1e 20%,#030f25 35%,#05142e 50%,#071830 65%,#091c35 80%,#0a1e38 100%)}
+.mountains{position:absolute;bottom:28%;left:0;right:0;height:35%;background:radial-gradient(ellipse 40% 60% at 15% 100%,#0a1828 0%,transparent 70%),radial-gradient(ellipse 40% 55% at 85% 100%,#0c1e30 0%,transparent 70%),radial-gradient(ellipse 30% 80% at 50% 120%,#060e1a 0%,transparent 60%)}
+.city-grid{position:absolute;bottom:18%;left:0;right:0;height:30%;background:radial-gradient(1px 2px at 8% 70%,rgba(255,180,60,0.9) 0%,transparent 100%),radial-gradient(1px 1px at 15% 65%,rgba(255,200,80,0.8) 0%,transparent 100%),radial-gradient(2px 2px at 27% 68%,rgba(100,210,255,0.8) 0%,transparent 100%),radial-gradient(2px 1px at 35% 72%,rgba(0,180,255,0.8) 0%,transparent 100%),radial-gradient(2px 2px at 43% 66%,rgba(120,220,255,0.8) 0%,transparent 100%),radial-gradient(1px 2px at 51% 70%,rgba(0,170,255,0.8) 0%,transparent 100%),radial-gradient(1px 2px at 59% 68%,rgba(80,200,255,0.8) 0%,transparent 100%),radial-gradient(2px 1px at 67% 72%,rgba(0,190,255,0.8) 0%,transparent 100%),radial-gradient(1px 2px at 75% 66%,rgba(100,215,255,0.8) 0%,transparent 100%),radial-gradient(2px 1px at 83% 70%,rgba(0,175,255,0.8) 0%,transparent 100%);animation:cityflicker 3s ease-in-out infinite alternate}
 @keyframes cityflicker{from{opacity:.75}to{opacity:1}}
-
-/* Building silhouettes */
-.buildings {
-  position:absolute;bottom:18%;left:0;right:0;height:25%;
-  background:
-    /* tall tower center */
-    linear-gradient(180deg, rgba(0,30,70,0.9) 0%, #030a14 100%) 48% 0 / 4% 100% no-repeat,
-    /* medium buildings */
-    linear-gradient(180deg, rgba(3,12,28,0.95) 0%, #030a14 100%) 20% 0 / 8% 70% no-repeat,
-    linear-gradient(180deg, rgba(2,10,24,0.9) 0%, #030a14 100%) 35% 0 / 6% 55% no-repeat,
-    linear-gradient(180deg, rgba(3,12,28,0.95) 0%, #030a14 100%) 65% 0 / 7% 65% no-repeat,
-    linear-gradient(180deg, rgba(2,10,24,0.9) 0%, #030a14 100%) 78% 0 / 9% 50% no-repeat;
-}
-
-/* Tower beacon */
-.beacon {
-  position:absolute;
-  bottom:calc(18% + 25%);
-  left:calc(50% - 1px);
-  width:3px;height:6px;
-  background:var(--accent);
-  box-shadow:0 0 10px var(--accent),0 0 20px var(--accent);
-  border-radius:50%;
-  z-index:3;
-  animation:beacon 1.5s ease-in-out infinite alternate;
-}
+.buildings{position:absolute;bottom:18%;left:0;right:0;height:25%;background:linear-gradient(180deg,rgba(0,30,70,0.9) 0%,#030a14 100%) 48% 0/4% 100% no-repeat,linear-gradient(180deg,rgba(3,12,28,0.95) 0%,#030a14 100%) 20% 0/8% 70% no-repeat,linear-gradient(180deg,rgba(2,10,24,0.9) 0%,#030a14 100%) 35% 0/6% 55% no-repeat,linear-gradient(180deg,rgba(3,12,28,0.95) 0%,#030a14 100%) 65% 0/7% 65% no-repeat,linear-gradient(180deg,rgba(2,10,24,0.9) 0%,#030a14 100%) 78% 0/9% 50% no-repeat}
+.beacon{position:absolute;bottom:calc(18% + 25%);left:calc(50% - 1px);width:3px;height:6px;background:var(--accent);box-shadow:0 0 10px var(--accent),0 0 20px var(--accent);border-radius:50%;z-index:3;animation:beacon 1.5s ease-in-out infinite alternate}
 @keyframes beacon{from{opacity:.3}to{opacity:1}}
+.water{position:absolute;bottom:0;left:0;right:0;height:20%;background:linear-gradient(180deg,rgba(0,30,80,0.4) 0%,rgba(0,20,60,0.6) 50%,rgba(0,15,45,0.7) 100%)}
+.window-border{position:fixed;bottom:-8%;left:50%;transform:translateX(-50%);width:95%;height:72%;border-radius:50% 50% 0 0/55% 55% 0 0;border:2px solid rgba(60,130,220,0.35);z-index:5;pointer-events:none}
+.room-glow{position:fixed;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 50% 85%,rgba(0,80,200,0.12) 0%,transparent 60%)}
 
-/* Water/road at bottom */
-.water {
-  position:absolute;bottom:0;left:0;right:0;height:20%;
-  background:linear-gradient(180deg,
-    rgba(0,30,80,0.4) 0%,
-    rgba(0,20,60,0.6) 50%,
-    rgba(0,15,45,0.7) 100%);
-}
-
-/* Water reflections */
-.reflections {
-  position:absolute;bottom:0;left:0;right:0;height:18%;
-  background:
-    radial-gradient(2px 8px at 25% 50%, rgba(255,180,60,0.4) 0%,transparent 100%),
-    radial-gradient(2px 12px at 50% 60%, rgba(0,150,255,0.5) 0%,transparent 100%),
-    radial-gradient(2px 8px at 75% 50%, rgba(255,160,50,0.3) 0%,transparent 100%);
-  animation:ripple 4s ease-in-out infinite alternate;
-}
-@keyframes ripple{from{opacity:.5;transform:scaleX(1)}to{opacity:.8;transform:scaleX(1.05)}}
-
-/* City glow behind mountains */
-.city-glow {
-  position:absolute;bottom:28%;left:0;right:0;height:20%;
-  background:
-    radial-gradient(ellipse 60% 100% at 30% 100%, rgba(255,120,30,0.12) 0%,transparent 70%),
-    radial-gradient(ellipse 80% 100% at 50% 100%, rgba(0,100,200,0.2) 0%,transparent 65%),
-    radial-gradient(ellipse 60% 100% at 70% 100%, rgba(0,80,180,0.12) 0%,transparent 70%);
-}
-
-/* Window frame border glow */
-.window-border {
-  position:fixed;bottom:-8%;left:50%;transform:translateX(-50%);
-  width:95%;height:72%;
-  border-radius:50% 50% 0 0/55% 55% 0 0;
-  border:2px solid rgba(60,130,220,0.35);
-  box-shadow:
-    0 0 30px rgba(0,100,255,0.15),
-    inset 0 0 30px rgba(0,50,150,0.08);
-  z-index:5;pointer-events:none;
-}
-
-/* Room ambient light from window */
-.room-glow {
-  position:fixed;inset:0;z-index:3;pointer-events:none;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 85%, rgba(0,80,200,0.12) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 30% at 50% 100%, rgba(0,100,220,0.08) 0%,transparent 50%);
-}
-
-/* Side wall darkness */
-.side-dark-l {
-  position:fixed;top:0;left:0;width:5%;height:100%;z-index:4;pointer-events:none;
-  background:linear-gradient(90deg,rgba(2,5,10,0.8) 0%,transparent 100%);
-}
-.side-dark-r {
-  position:fixed;top:0;right:0;width:5%;height:100%;z-index:4;pointer-events:none;
-  background:linear-gradient(270deg,rgba(2,5,10,0.8) 0%,transparent 100%);
-}
-
-/* ═══ MAIN UI ═══ */
 .main{position:relative;z-index:10;display:flex;flex-direction:column;height:100%}
 
-.header{
-  padding:10px 14px 8px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:linear-gradient(180deg,rgba(2,5,12,0.94) 0%,rgba(2,5,12,0.6) 100%);
-  backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-shrink:0;
-}
+.header{padding:10px 14px 8px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(2,5,12,0.94) 0%,rgba(2,5,12,0.6) 100%);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-shrink:0}
 .h-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;color:var(--accent);letter-spacing:.15em;text-shadow:0 0 16px rgba(0,170,255,.5)}
 .h-sub{font-size:9px;color:var(--text3);letter-spacing:.1em;margin-top:1px}
 .h-right{display:flex;align-items:center;gap:8px}
 .live{display:flex;align-items:center;gap:4px;font-size:9px;color:var(--accent3);letter-spacing:.08em}
 .live::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent3);box-shadow:0 0 6px var(--accent3);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.toggle-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-family:'Space Mono',monospace;font-size:9px;padding:3px 7px;cursor:pointer;transition:all .2s}
-.toggle-btn:active{border-color:var(--accent);color:var(--accent)}
+.toggle-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-family:'Space Mono',monospace;font-size:9px;padding:3px 7px;cursor:pointer}
 
-.state-panel{
-  overflow:hidden;transition:max-height .35s ease,opacity .35s ease;
-  max-height:280px;opacity:1;
-  background:rgba(2,8,20,0.75);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);flex-shrink:0;
-}
+.state-panel{overflow:hidden;transition:max-height .35s ease,opacity .35s ease;max-height:280px;opacity:1;background:rgba(2,8,20,0.75);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-shrink:0}
 .state-panel.collapsed{max-height:0;opacity:0;border-bottom:none}
 .state-inner{padding:8px 14px}
-
 .theta-row{display:flex;justify-content:space-between;font-size:9px;color:var(--text3);letter-spacing:.1em;margin-bottom:3px}
 .tv{color:var(--accent)}
 .theta-track{height:2px;background:rgba(0,100,255,.1);border-radius:2px;margin-bottom:7px;position:relative}
 .theta-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent2),var(--accent),var(--accent3));box-shadow:0 0 6px var(--accent);transition:width 1.5s ease;position:relative}
 .theta-fill::after{content:'';position:absolute;right:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--accent3);box-shadow:0 0 8px var(--accent3)}
-
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:6px}
 .stat-box{background:var(--glass);border:1px solid var(--border);border-radius:7px;padding:4px 7px;backdrop-filter:blur(8px)}
 .stat-lbl{font-size:8px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase}
 .stat-val{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;color:var(--accent);line-height:1.2}
 .stat-val.or{color:var(--warm)}
 .stat-val.gr{color:var(--accent3)}
-
 .narrative{background:var(--glass);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:7px;padding:5px 9px;font-size:11px;color:var(--text2);font-style:italic;margin-bottom:6px;min-height:24px;backdrop-filter:blur(8px)}
-
 .ctrl-row{display:flex;gap:5px}
 .ctrl-btn{flex:1;padding:5px 2px;background:var(--glass);border:1px solid var(--border);border-radius:7px;color:var(--text2);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.06em;cursor:pointer;backdrop-filter:blur(6px);transition:all .2s}
 .ctrl-btn:active{background:rgba(0,100,255,.2);border-color:var(--accent);color:var(--accent)}
 
-/* CHAT - fully transparent */
-.chat-wrap{
-  flex:1;overflow-y:auto;padding:12px 14px;
-  display:flex;flex-direction:column;gap:10px;
-  scrollbar-width:none;background:transparent;
-}
+.chat-wrap{flex:1;overflow-y:auto;padding:10px 14px;display:flex;flex-direction:column;gap:10px;scrollbar-width:none;background:transparent}
 .chat-wrap::-webkit-scrollbar{display:none}
 
 .empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(0,140,255,0.35);font-size:11px;letter-spacing:.1em;padding-bottom:40px}
@@ -266,7 +80,9 @@ body{
 
 .bubble{max-width:82%;padding:9px 13px;line-height:1.55;font-size:13px}
 .msg.user .bubble{background:linear-gradient(135deg,rgba(0,70,180,.9),rgba(0,120,255,.75));border:1px solid rgba(0,150,255,.4);border-radius:16px 16px 3px 16px;color:#fff;backdrop-filter:blur(10px)}
-.msg.adam .bubble{background:rgba(2,12,30,.82);border:1px solid var(--border);border-radius:16px 16px 16px 3px;color:var(--text);backdrop-filter:blur(16px);box-shadow:0 4px 24px rgba(0,60,180,.12)}
+.msg.adam .bubble{background:rgba(2,12,30,.82);border:1px solid var(--border);border-radius:16px 16px 16px 3px;color:var(--text);backdrop-filter:blur(16px)}
+
+.bubble img{max-width:200px;border-radius:8px;display:block;margin-top:4px}
 
 .msg-meta{font-size:9px;color:var(--text3);display:flex;gap:6px;padding:0 4px;letter-spacing:.06em}
 .ma{color:var(--accent3)}.mt{color:var(--accent)}
@@ -278,14 +94,52 @@ body{
 .typing span:nth-child(3){animation-delay:.4s}
 @keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.3}30%{transform:translateY(-5px);opacity:1}}
 
-.input-area{padding:8px 14px 14px;background:linear-gradient(0deg,rgba(2,5,12,.97) 0%,rgba(2,5,12,.65) 100%);backdrop-filter:blur(18px);border-top:1px solid var(--border);display:flex;gap:8px;align-items:flex-end;flex-shrink:0}
-.input-box{flex:1;background:rgba(3,15,38,.65);border:1px solid var(--border);border-radius:20px;padding:9px 14px;backdrop-filter:blur(10px);transition:border-color .2s,box-shadow .2s}
-.input-box:focus-within{border-color:rgba(0,150,255,.5);box-shadow:0 0 18px rgba(0,100,255,.15)}
+/* STICKER TRAY */
+.sticker-tray{
+  display:none;flex-wrap:wrap;gap:6px;
+  padding:8px 14px;
+  background:rgba(2,8,20,0.85);
+  backdrop-filter:blur(16px);
+  border-top:1px solid var(--border);
+  flex-shrink:0;
+}
+.sticker-tray.open{display:flex}
+.sticker{font-size:24px;cursor:pointer;padding:4px;border-radius:8px;transition:transform .15s}
+.sticker:active{transform:scale(1.3)}
+
+/* VOICE RECORDING */
+.recording-bar{
+  display:none;
+  padding:8px 14px;
+  background:rgba(2,8,20,0.85);
+  backdrop-filter:blur(14px);
+  border-top:1px solid var(--border);
+  align-items:center;gap:10px;
+  flex-shrink:0;
+}
+.recording-bar.active{display:flex}
+.rec-dot{width:8px;height:8px;border-radius:50%;background:#ff4444;box-shadow:0 0 8px #ff4444;animation:blink 1s infinite}
+.rec-time{font-size:12px;color:var(--text2);flex:1}
+.rec-stop{padding:6px 14px;background:rgba(255,50,50,.2);border:1px solid rgba(255,50,50,.4);border-radius:8px;color:#ff6666;font-family:'Space Mono',monospace;font-size:11px;cursor:pointer}
+
+/* INPUT AREA */
+.input-area{padding:8px 14px 14px;background:linear-gradient(0deg,rgba(2,5,12,.97) 0%,rgba(2,5,12,.65) 100%);backdrop-filter:blur(18px);border-top:1px solid var(--border);flex-shrink:0}
+
+.input-row{display:flex;gap:8px;align-items:flex-end}
+
+.input-box{flex:1;background:rgba(3,15,38,.65);border:1px solid var(--border);border-radius:20px;padding:9px 14px;backdrop-filter:blur(10px);transition:border-color .2s}
+.input-box:focus-within{border-color:rgba(0,150,255,.5)}
 .input-box textarea{background:none;border:none;outline:none;color:var(--text);font-family:'Space Mono',monospace;font-size:13px;width:100%;resize:none;max-height:80px;line-height:1.4}
 .input-box textarea::placeholder{color:var(--text3)}
+
 .send-btn{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 18px rgba(0,150,255,.3);transition:all .2s}
 .send-btn:active{transform:scale(.9)}
 .send-btn svg{width:16px;height:16px;fill:#fff}
+
+.media-row{display:flex;gap:8px;margin-bottom:8px;align-items:center}
+.media-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--glass);border:1px solid var(--border);cursor:pointer;font-size:18px;transition:all .2s;backdrop-filter:blur(8px)}
+.media-btn:active{background:rgba(0,100,255,.2);border-color:var(--accent)}
+.media-btn.recording{background:rgba(255,50,50,.2);border-color:#ff4444}
 
 /* SETUP */
 .setup{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:radial-gradient(ellipse at 50% 110%,rgba(0,60,180,.3) 0%,transparent 55%),linear-gradient(180deg,#020710 0%,#030c1c 100%)}
@@ -293,42 +147,39 @@ body{
 .s-tag{font-size:10px;color:var(--text3);letter-spacing:.2em;margin-bottom:26px}
 .sf{width:100%;max-width:300px;margin-bottom:11px}
 .sf label{display:block;font-size:9px;color:var(--text3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
-.sf input{width:100%;background:rgba(3,15,38,.7);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-family:'Space Mono',monospace;font-size:13px;outline:none;transition:border-color .2s,box-shadow .2s}
-.sf input:focus{border-color:rgba(0,150,255,.5);box-shadow:0 0 18px rgba(0,100,255,.15)}
+.sf input{width:100%;background:rgba(3,15,38,.7);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-family:'Space Mono',monospace;font-size:13px;outline:none;transition:border-color .2s}
+.sf input:focus{border-color:rgba(0,150,255,.5)}
 .dr{display:flex;gap:8px}
 .dr input{width:33%}
-.sbtn{width:100%;max-width:300px;padding:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;border-radius:10px;color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.15em;cursor:pointer;box-shadow:0 0 25px rgba(0,150,255,.2);margin-top:4px;transition:all .2s}
+.sbtn{width:100%;max-width:300px;padding:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;border-radius:10px;color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.15em;cursor:pointer;margin-top:4px;transition:all .2s}
 .sbtn:active{opacity:.85;transform:scale(.98)}
-.sbtn.ghost{background:rgba(3,15,38,.7);border:1px solid var(--border);color:var(--text2);box-shadow:none;margin-top:8px}
+.sbtn.ghost{background:rgba(3,15,38,.7);border:1px solid var(--border);color:var(--text2);margin-top:8px}
 .sdiv{font-size:10px;color:var(--text3);letter-spacing:.15em;margin:10px 0}
 .hidden{display:none!important}
+
+/* hidden file inputs */
+#photoInput,#fileInput{display:none}
 </style>
 </head>
 <body>
 
-<!-- SCENE -->
 <div class="room"></div>
 <div class="window-frame">
   <div class="window-sky"></div>
-  <div class="city-glow"></div>
   <div class="mountains"></div>
   <div class="city-grid"></div>
   <div class="buildings"></div>
   <div class="beacon"></div>
   <div class="water"></div>
-  <div class="reflections"></div>
 </div>
 <div class="window-border"></div>
 <div class="room-glow"></div>
-<div class="side-dark-l"></div>
-<div class="side-dark-r"></div>
-<div class="floor"></div>
 
 <!-- SETUP -->
 <div class="setup" id="setup">
   <div class="s-logo">ADAM</div>
   <div class="s-tag">0.0318 SELALU TERSISA 🌀</div>
-  <div class="sf"><label>Host</label><input type="text" id="hostIn" value="http://10.73.143.203:5002"></div>
+  <div class="sf"><label>Host</label><input type="text" id="hostIn" value="http://localhost:5002"></div>
   <div class="sf">
     <label>Tanggal Lahir · DD / MM / YYYY</label>
     <div class="dr">
@@ -381,19 +232,60 @@ body{
     </div>
   </div>
 
+  <!-- STICKER TRAY -->
+  <div class="sticker-tray" id="stickerTray">
+    <span class="sticker" onclick="sendSticker('🫡')">🫡</span>
+    <span class="sticker" onclick="sendSticker('🤙')">🤙</span>
+    <span class="sticker" onclick="sendSticker('💀')">💀</span>
+    <span class="sticker" onclick="sendSticker('🔥')">🔥</span>
+    <span class="sticker" onclick="sendSticker('👀')">👀</span>
+    <span class="sticker" onclick="sendSticker('🗿')">🗿</span>
+    <span class="sticker" onclick="sendSticker('😭')">😭</span>
+    <span class="sticker" onclick="sendSticker('🤡')">🤡</span>
+    <span class="sticker" onclick="sendSticker('⚡')">⚡</span>
+    <span class="sticker" onclick="sendSticker('🌀')">🌀</span>
+    <span class="sticker" onclick="sendSticker('👾')">👾</span>
+    <span class="sticker" onclick="sendSticker('🎯')">🎯</span>
+    <span class="sticker" onclick="sendSticker('🧠')">🧠</span>
+    <span class="sticker" onclick="sendSticker('🕳')">🕳</span>
+    <span class="sticker" onclick="sendSticker('✨')">✨</span>
+    <span class="sticker" onclick="sendSticker('🫀')">🫀</span>
+  </div>
+
+  <!-- RECORDING BAR -->
+  <div class="recording-bar" id="recBar">
+    <div class="rec-dot"></div>
+    <div class="rec-time" id="recTime">RECORDING... 0s</div>
+    <button class="rec-stop" onclick="stopRecording()">STOP</button>
+  </div>
+
+  <!-- INPUT -->
   <div class="input-area">
-    <div class="input-box">
-      <textarea id="msgIn" placeholder="bicara dengan ADAM..." rows="1"
-        onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <div class="media-row">
+      <div class="media-btn" onclick="triggerPhoto()" title="Foto">📷</div>
+      <div class="media-btn" onclick="triggerVoice()" id="voiceBtn" title="Voice">🎙</div>
+      <div class="media-btn" onclick="triggerFile()" title="File">📎</div>
+      <div class="media-btn" onclick="toggleStickers()" title="Stiker">😄</div>
     </div>
-    <button class="send-btn" onclick="sendMsg()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-    </button>
+    <div class="input-row">
+      <div class="input-box">
+        <textarea id="msgIn" placeholder="bicara dengan ADAM..." rows="1"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      </div>
+      <button class="send-btn" onclick="sendMsg()">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
   </div>
 </div>
 
+<!-- hidden inputs -->
+<input type="file" id="photoInput" accept="image/*" capture="environment" onchange="handlePhoto(event)">
+<input type="file" id="fileInput" accept="*/*" onchange="handleFile(event)">
+
 <script>
 let HOST='http://localhost:5002',SID=null,panelOpen=true;
+let mediaRec=null,recInterval=null,recSecs=0,audioChunks=[];
 
 async function doLahir(){
   HOST=document.getElementById('hostIn').value.trim();
@@ -461,8 +353,19 @@ async function sendMsg(){
   const text=el.value.trim();
   if(!text||!SID)return;
   el.value='';autoResize(el);
+  closeStickerTray();
+  await sendToADAM(text);
+}
+
+async function sendSticker(emoji){
+  closeStickerTray();
+  await sendToADAM(emoji);
+}
+
+async function sendToADAM(text, displayText){
   document.getElementById('emptyEl')?.remove();
-  addBubble('user',text);const tEl=addTyping();scrollBot();
+  addBubble('user', displayText||text);
+  const tEl=addTyping();scrollBot();
   try{
     const r=await fetch(`${HOST}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID,message:text})});
     const d=await r.json();tEl.remove();
@@ -475,10 +378,17 @@ async function sendMsg(){
   scrollBot();
 }
 
-function addBubble(role,text,meta){
+function addBubble(role,text,meta,imgSrc){
   const w=document.getElementById('chatWrap');
   const msg=document.createElement('div');msg.className=`msg ${role}`;
-  const b=document.createElement('div');b.className='bubble';b.textContent=text;msg.appendChild(b);
+  const b=document.createElement('div');b.className='bubble';
+  if(imgSrc){
+    b.textContent=text||'';
+    const img=document.createElement('img');img.src=imgSrc;b.appendChild(img);
+  } else {
+    b.textContent=text;
+  }
+  msg.appendChild(b);
   if(role==='adam'&&meta){
     const m=document.createElement('div');m.className='msg-meta';
     if(meta.affect)m.innerHTML+=`<span class="ma">${meta.affect}</span>`;
@@ -496,10 +406,77 @@ function addTyping(){
 }
 
 function scrollBot(){const w=document.getElementById('chatWrap');w.scrollTop=w.scrollHeight}
+
+// PHOTO
+function triggerPhoto(){document.getElementById('photoInput').click()}
+
+function handlePhoto(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=(ev)=>{
+    const b64=ev.target.result;
+    document.getElementById('emptyEl')?.remove();
+    addBubble('user','📷 foto',null,b64);
+    sendToADAM('[user mengirim foto]','📷 foto');
+  };
+  reader.readAsDataURL(file);
+  e.target.value='';
+}
+
+// FILE
+function triggerFile(){document.getElementById('fileInput').click()}
+
+function handleFile(e){
+  const file=e.target.files[0];if(!file)return;
+  sendToADAM(`[user mengirim file: ${file.name}]`,`📎 ${file.name}`);
+  e.target.value='';
+}
+
+// VOICE
+function triggerVoice(){
+  if(mediaRec&&mediaRec.state==='recording'){stopRecording();return;}
+  if(!navigator.mediaDevices){alert('Mikrofon tidak tersedia');return;}
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+    audioChunks=[];
+    mediaRec=new MediaRecorder(stream);
+    mediaRec.ondataavailable=e=>audioChunks.push(e.data);
+    mediaRec.onstop=()=>{
+      stream.getTracks().forEach(t=>t.stop());
+      const blob=new Blob(audioChunks,{type:'audio/webm'});
+      sendToADAM(`[user mengirim pesan suara ${recSecs}s]`,`🎙 ${recSecs}s`);
+    };
+    mediaRec.start();
+    recSecs=0;
+    document.getElementById('recBar').classList.add('active');
+    document.getElementById('voiceBtn').classList.add('recording');
+    recInterval=setInterval(()=>{
+      recSecs++;
+      document.getElementById('recTime').textContent=`RECORDING... ${recSecs}s`;
+    },1000);
+  }).catch(()=>alert('Izin mikrofon ditolak'));
+}
+
+function stopRecording(){
+  if(mediaRec)mediaRec.stop();
+  clearInterval(recInterval);
+  document.getElementById('recBar').classList.remove('active');
+  document.getElementById('voiceBtn').classList.remove('recording');
+}
+
+// STICKERS
+function toggleStickers(){
+  document.getElementById('stickerTray').classList.toggle('open');
+}
+function closeStickerTray(){
+  document.getElementById('stickerTray').classList.remove('open');
+}
+
+// CONTROLS
 async function doWake(){await post('/api/wake');setTimeout(fetchState,500)}
 async function doSleep(){await post('/api/sleep');setTimeout(fetchState,500)}
 async function doFocus(){await post('/api/focus');setTimeout(fetchState,500)}
 async function post(p){return fetch(`${HOST}${p}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID})})}
+
 function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg()}}
 function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,80)+'px'}
 </script>
