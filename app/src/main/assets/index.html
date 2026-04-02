@@ -336,13 +336,16 @@ async function fetchState(){
   }catch(e){}
 }
 
+let _renderedCount=0;
 async function loadHistory(){
   try{
     const r=await fetch(`${HOST}/api/history?session_id=${SID}`);
     const msgs=await r.json();
-    if(msgs.length){
+    const slice=msgs.slice(-20);
+    if(slice.length){
       document.getElementById('emptyEl')?.remove();
-      msgs.slice(-20).forEach(m=>addBubble(m.role==='user'?'user':'adam',m.content));
+      slice.forEach(m=>addBubble(m.role==='user'?'user':'adam',m.content));
+      _renderedCount=slice.length;
       scrollBot();
     }
   }catch(e){}
