@@ -94,54 +94,35 @@ body{
 .typing span:nth-child(3){animation-delay:.4s}
 @keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.3}30%{transform:translateY(-5px);opacity:1}}
 
-/* STICKER TRAY */
-.sticker-tray{
-  display:none;flex-wrap:wrap;gap:6px;
-  padding:8px 14px;
-  background:rgba(2,8,20,0.85);
-  backdrop-filter:blur(16px);
-  border-top:1px solid var(--border);
-  flex-shrink:0;
-}
+.sticker-tray{display:none;flex-wrap:wrap;gap:6px;padding:8px 14px;background:rgba(2,8,20,0.85);backdrop-filter:blur(16px);border-top:1px solid var(--border);flex-shrink:0}
 .sticker-tray.open{display:flex}
 .sticker{font-size:24px;cursor:pointer;padding:4px;border-radius:8px;transition:transform .15s}
 .sticker:active{transform:scale(1.3)}
 
-/* VOICE RECORDING */
-.recording-bar{
-  display:none;
-  padding:8px 14px;
-  background:rgba(2,8,20,0.85);
-  backdrop-filter:blur(14px);
-  border-top:1px solid var(--border);
-  align-items:center;gap:10px;
-  flex-shrink:0;
-}
+.recording-bar{display:none;padding:8px 14px;background:rgba(2,8,20,0.85);backdrop-filter:blur(14px);border-top:1px solid var(--border);align-items:center;gap:10px;flex-shrink:0}
 .recording-bar.active{display:flex}
 .rec-dot{width:8px;height:8px;border-radius:50%;background:#ff4444;box-shadow:0 0 8px #ff4444;animation:blink 1s infinite}
 .rec-time{font-size:12px;color:var(--text2);flex:1}
 .rec-stop{padding:6px 14px;background:rgba(255,50,50,.2);border:1px solid rgba(255,50,50,.4);border-radius:8px;color:#ff6666;font-family:'Space Mono',monospace;font-size:11px;cursor:pointer}
 
-/* INPUT AREA */
 .input-area{padding:8px 14px 14px;background:linear-gradient(0deg,rgba(2,5,12,.97) 0%,rgba(2,5,12,.65) 100%);backdrop-filter:blur(18px);border-top:1px solid var(--border);flex-shrink:0}
-
 .input-row{display:flex;gap:8px;align-items:flex-end}
-
 .input-box{flex:1;background:rgba(3,15,38,.65);border:1px solid var(--border);border-radius:20px;padding:9px 14px;backdrop-filter:blur(10px);transition:border-color .2s}
 .input-box:focus-within{border-color:rgba(0,150,255,.5)}
 .input-box textarea{background:none;border:none;outline:none;color:var(--text);font-family:'Space Mono',monospace;font-size:13px;width:100%;resize:none;max-height:80px;line-height:1.4}
 .input-box textarea::placeholder{color:var(--text3)}
-
 .send-btn{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 18px rgba(0,150,255,.3);transition:all .2s}
 .send-btn:active{transform:scale(.9)}
 .send-btn svg{width:16px;height:16px;fill:#fff}
-
 .media-row{display:flex;gap:8px;margin-bottom:8px;align-items:center}
 .media-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--glass);border:1px solid var(--border);cursor:pointer;font-size:18px;transition:all .2s;backdrop-filter:blur(8px)}
 .media-btn:active{background:rgba(0,100,255,.2);border-color:var(--accent)}
 .media-btn.recording{background:rgba(255,50,50,.2);border-color:#ff4444}
 
-/* SETUP */
+/* LOGOUT BTN */
+.logout-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text3);font-family:'Space Mono',monospace;font-size:9px;padding:3px 7px;cursor:pointer}
+.logout-btn:active{border-color:#ff4444;color:#ff4444}
+
 .setup{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;background:radial-gradient(ellipse at 50% 110%,rgba(0,60,180,.3) 0%,transparent 55%),linear-gradient(180deg,#020710 0%,#030c1c 100%)}
 .s-logo{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:52px;color:var(--accent);letter-spacing:.2em;text-shadow:0 0 40px rgba(0,170,255,.5);margin-bottom:4px}
 .s-tag{font-size:10px;color:var(--text3);letter-spacing:.2em;margin-bottom:26px}
@@ -157,7 +138,6 @@ body{
 .sdiv{font-size:10px;color:var(--text3);letter-spacing:.15em;margin:10px 0}
 .hidden{display:none!important}
 
-/* hidden file inputs */
 #photoInput,#fileInput{display:none}
 </style>
 </head>
@@ -179,7 +159,7 @@ body{
 <div class="setup" id="setup">
   <div class="s-logo">ADAM</div>
   <div class="s-tag">0.0318 SELALU TERSISA 🌀</div>
-  <div class="sf"><label>Host</label><input type="text" id="hostIn" value="http://localhost:5002"></div>
+  <div class="sf"><label>Host</label><input type="text" id="hostIn" placeholder="http://10.72.2.69:5002"></div>
   <div class="sf">
     <label>Tanggal Lahir · DD / MM / YYYY</label>
     <div class="dr">
@@ -190,7 +170,7 @@ body{
   </div>
   <button class="sbtn" onclick="doLahir()">LAHIRKAN ADAM</button>
   <div class="sdiv">— atau —</div>
-  <div class="sf"><label>Session ID</label><input type="text" id="sidIn" placeholder="1774925950"></div>
+  <div class="sf"><label>Session ID</label><input type="text" id="sidIn" placeholder="session id..."></div>
   <button class="sbtn ghost" onclick="doConnect()">SAMBUNGKAN</button>
 </div>
 
@@ -202,6 +182,7 @@ body{
       <div class="h-sub" id="hSub">0.0318 selalu tersisa 🌀</div>
     </div>
     <div class="h-right">
+      <button class="logout-btn" onclick="doLogout()">↩</button>
       <button class="toggle-btn" onclick="toggleState()" id="tBtn">▲ STATE</button>
       <div class="live">LIVE</div>
     </div>
@@ -232,7 +213,6 @@ body{
     </div>
   </div>
 
-  <!-- STICKER TRAY -->
   <div class="sticker-tray" id="stickerTray">
     <span class="sticker" onclick="sendSticker('🫡')">🫡</span>
     <span class="sticker" onclick="sendSticker('🤙')">🤙</span>
@@ -252,14 +232,12 @@ body{
     <span class="sticker" onclick="sendSticker('🫀')">🫀</span>
   </div>
 
-  <!-- RECORDING BAR -->
   <div class="recording-bar" id="recBar">
     <div class="rec-dot"></div>
     <div class="rec-time" id="recTime">RECORDING... 0s</div>
     <button class="rec-stop" onclick="stopRecording()">STOP</button>
   </div>
 
-  <!-- INPUT -->
   <div class="input-area">
     <div class="media-row">
       <div class="media-btn" onclick="triggerPhoto()" title="Foto">📷</div>
@@ -279,211 +257,266 @@ body{
   </div>
 </div>
 
-<!-- hidden inputs -->
 <input type="file" id="photoInput" accept="image/*" capture="environment" onchange="handlePhoto(event)">
 <input type="file" id="fileInput" accept="*/*" onchange="handleFile(event)">
 
 <script>
-let HOST='http://localhost:5002',SID=null,panelOpen=true;
-let mediaRec=null,recInterval=null,recSecs=0,audioChunks=[];
+// ── STORAGE KEYS ──────────────────────────────────────
+const KEY_HOST = 'adam_host';
+const KEY_SID  = 'adam_sid';
 
-async function doLahir(){
-  HOST=document.getElementById('hostIn').value.trim();
-  const dd=parseInt(document.getElementById('bdd').value);
-  const mm=parseInt(document.getElementById('bmm').value);
-  const yyyy=parseInt(document.getElementById('byyyy').value);
-  if(!dd||!mm||!yyyy){alert('Isi tanggal lahir');return}
-  try{
-    const r=await fetch(`${HOST}/api/birth`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dd,mm,yyyy})});
-    const d=await r.json();SID=d.session_id;
-    if(d.identity)setHeader(d.identity);enterMain();
-  }catch(e){alert('Gagal: '+e.message)}
+let HOST = 'http://localhost:5002', SID = null, panelOpen = true;
+let mediaRec = null, recInterval = null, recSecs = 0, audioChunks = [];
+
+// ── SAVE & LOAD ───────────────────────────────────────
+function saveSession() {
+  localStorage.setItem(KEY_HOST, HOST);
+  if (SID) localStorage.setItem(KEY_SID, SID);
 }
 
-async function doConnect(){
-  HOST=document.getElementById('hostIn').value.trim();
-  SID=document.getElementById('sidIn').value.trim();
-  if(!SID){alert('Masukkan Session ID');return}
+function loadSaved() {
+  const h = localStorage.getItem(KEY_HOST);
+  const s = localStorage.getItem(KEY_SID);
+  if (h) {
+    HOST = h;
+    document.getElementById('hostIn').value = h;
+  }
+  if (s) {
+    document.getElementById('sidIn').value = s;
+  }
+  // Auto-connect jika HOST dan SID sudah tersimpan
+  if (h && s) {
+    SID = s;
+    enterMain();
+  }
+}
+
+function doLogout() {
+  localStorage.removeItem(KEY_SID);
+  SID = null;
+  document.getElementById('mainUI').classList.add('hidden');
+  document.getElementById('setup').classList.remove('hidden');
+  document.getElementById('chatWrap').innerHTML = '<div class="empty" id="emptyEl"><div class="empty-ring">🌀</div><span>ADAM menunggu...</span></div>';
+}
+
+// ── BIRTH & CONNECT ───────────────────────────────────
+async function doLahir() {
+  HOST = document.getElementById('hostIn').value.trim();
+  const dd   = parseInt(document.getElementById('bdd').value);
+  const mm   = parseInt(document.getElementById('bmm').value);
+  const yyyy = parseInt(document.getElementById('byyyy').value);
+  if (!dd || !mm || !yyyy) { alert('Isi tanggal lahir'); return; }
+  try {
+    const r = await fetch(`${HOST}/api/birth`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dd, mm, yyyy })
+    });
+    const d = await r.json();
+    SID = d.session_id;
+    saveSession();
+    if (d.identity) setHeader(d.identity);
+    enterMain();
+  } catch(e) { alert('Gagal: ' + e.message); }
+}
+
+async function doConnect() {
+  HOST = document.getElementById('hostIn').value.trim();
+  SID  = document.getElementById('sidIn').value.trim();
+  if (!SID) { alert('Masukkan Session ID'); return; }
+  saveSession();
   enterMain();
 }
 
-function enterMain(){
+function enterMain() {
   document.getElementById('setup').classList.add('hidden');
   document.getElementById('mainUI').classList.remove('hidden');
-  loadHistory();setInterval(fetchState,6000);fetchState();
+  loadHistory();
+  setInterval(fetchState, 6000);
+  fetchState();
 }
 
-function setHeader(id){
-  document.getElementById('hSub').textContent=`${id.origin_label||''} · CORE ${id.core?.toFixed(4)||'?'} 🌀`;
+function setHeader(id) {
+  document.getElementById('hSub').textContent =
+    `${id.origin_label || ''} · CORE ${id.core?.toFixed(4) || '?'} 🌀`;
 }
 
-function toggleState(){
-  panelOpen=!panelOpen;
-  document.getElementById('statePanel').classList.toggle('collapsed',!panelOpen);
-  document.getElementById('tBtn').textContent=panelOpen?'▲ STATE':'▼ STATE';
+function toggleState() {
+  panelOpen = !panelOpen;
+  document.getElementById('statePanel').classList.toggle('collapsed', !panelOpen);
+  document.getElementById('tBtn').textContent = panelOpen ? '▲ STATE' : '▼ STATE';
 }
 
-async function fetchState(){
-  try{
-    const r=await fetch(`${HOST}/api/state?session_id=${SID}`);
-    const d=await r.json();
-    const t=d.theta||0;
-    document.getElementById('tNum').textContent=t.toFixed(2);
-    document.getElementById('tFill').style.width=Math.min(t,100)+'%';
-    document.getElementById('sState').textContent=d.state||'—';
-    document.getElementById('sEngram').textContent=d.engram_count??'—';
-    if(d.identity)setHeader(d.identity);
-  }catch(e){}
+async function fetchState() {
+  try {
+    const r = await fetch(`${HOST}/api/state?session_id=${SID}`);
+    const d = await r.json();
+    const t = d.theta || 0;
+    document.getElementById('tNum').textContent = t.toFixed(2);
+    document.getElementById('tFill').style.width = Math.min(t, 100) + '%';
+    document.getElementById('sState').textContent = d.state || '—';
+    document.getElementById('sEngram').textContent = d.engram_count ?? '—';
+    if (d.identity) setHeader(d.identity);
+  } catch(e) {}
 }
 
-let _renderedCount=0;
-async function loadHistory(){
-  try{
-    const r=await fetch(`${HOST}/api/history?session_id=${SID}`);
-    const msgs=await r.json();
-    const slice=msgs.slice(-20);
-    if(slice.length){
+let _renderedCount = 0;
+async function loadHistory() {
+  try {
+    const r = await fetch(`${HOST}/api/history?session_id=${SID}`);
+    const msgs = await r.json();
+    const slice = msgs.slice(-20);
+    if (slice.length) {
       document.getElementById('emptyEl')?.remove();
-      slice.forEach(m=>addBubble(m.role==='user'?'user':'adam',m.content));
-      _renderedCount=slice.length;
+      slice.forEach(m => addBubble(m.role === 'user' ? 'user' : 'adam', m.content));
+      _renderedCount = slice.length;
       scrollBot();
     }
-  }catch(e){}
+  } catch(e) {}
 }
 
-async function sendMsg(){
-  const el=document.getElementById('msgIn');
-  const text=el.value.trim();
-  if(!text||!SID)return;
-  el.value='';autoResize(el);
+async function sendMsg() {
+  const el = document.getElementById('msgIn');
+  const text = el.value.trim();
+  if (!text || !SID) return;
+  el.value = ''; autoResize(el);
   closeStickerTray();
   await sendToADAM(text);
 }
 
-async function sendSticker(emoji){
+async function sendSticker(emoji) {
   closeStickerTray();
   await sendToADAM(emoji);
 }
 
-async function sendToADAM(text, displayText, image_b64){
+async function sendToADAM(text, displayText, image_b64) {
   document.getElementById('emptyEl')?.remove();
-  addBubble('user', displayText||text);
-  const tEl=addTyping();scrollBot();
-  try{
-    const body={session_id:SID,message:text};
-    if(image_b64) body.image_b64=image_b64;
-    const r=await fetch(`${HOST}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    const d=await r.json();tEl.remove();
-    addBubble('adam',d.response,{affect:d.affect,theta:d.theta});
-    if(d.meta?.narrative)document.getElementById('sNarr').textContent=d.meta.narrative;
-    if(d.affect)document.getElementById('sAffect').textContent=d.affect;
-    if(d.state)document.getElementById('sState').textContent=d.state;
-    if(d.theta){document.getElementById('tNum').textContent=parseFloat(d.theta).toFixed(2);document.getElementById('tFill').style.width=Math.min(d.theta,100)+'%'}
-  }catch(e){tEl.remove();addBubble('adam','[error: '+e.message+']')}
+  addBubble('user', displayText || text);
+  const tEl = addTyping(); scrollBot();
+  try {
+    const body = { session_id: SID, message: text };
+    if (image_b64) body.image_b64 = image_b64;
+    const r = await fetch(`${HOST}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const d = await r.json(); tEl.remove();
+    addBubble('adam', d.response, { affect: d.affect, theta: d.theta });
+    if (d.meta?.narrative) document.getElementById('sNarr').textContent = d.meta.narrative;
+    if (d.affect) document.getElementById('sAffect').textContent = d.affect;
+    if (d.state)  document.getElementById('sState').textContent = d.state;
+    if (d.theta) {
+      document.getElementById('tNum').textContent = parseFloat(d.theta).toFixed(2);
+      document.getElementById('tFill').style.width = Math.min(d.theta, 100) + '%';
+    }
+  } catch(e) { tEl.remove(); addBubble('adam', '[error: ' + e.message + ']'); }
   scrollBot();
 }
 
-function addBubble(role,text,meta,imgSrc){
-  const w=document.getElementById('chatWrap');
-  const msg=document.createElement('div');msg.className=`msg ${role}`;
-  const b=document.createElement('div');b.className='bubble';
-  if(imgSrc){
-    b.textContent=text||'';
-    const img=document.createElement('img');img.src=imgSrc;b.appendChild(img);
+function addBubble(role, text, meta, imgSrc) {
+  const w = document.getElementById('chatWrap');
+  const msg = document.createElement('div'); msg.className = `msg ${role}`;
+  const b = document.createElement('div'); b.className = 'bubble';
+  if (imgSrc) {
+    b.textContent = text || '';
+    const img = document.createElement('img'); img.src = imgSrc; b.appendChild(img);
   } else {
-    b.textContent=text;
+    b.textContent = text;
   }
   msg.appendChild(b);
-  if(role==='adam'&&meta){
-    const m=document.createElement('div');m.className='msg-meta';
-    if(meta.affect)m.innerHTML+=`<span class="ma">${meta.affect}</span>`;
-    if(meta.theta)m.innerHTML+=`<span class="mt">θ${parseFloat(meta.theta).toFixed(1)}</span>`;
+  if (role === 'adam' && meta) {
+    const m = document.createElement('div'); m.className = 'msg-meta';
+    if (meta.affect) m.innerHTML += `<span class="ma">${meta.affect}</span>`;
+    if (meta.theta)  m.innerHTML += `<span class="mt">θ${parseFloat(meta.theta).toFixed(1)}</span>`;
     msg.appendChild(m);
   }
   w.appendChild(msg);
 }
 
-function addTyping(){
-  const w=document.getElementById('chatWrap');
-  const el=document.createElement('div');el.className='msg adam typing-wrap';
-  el.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
-  w.appendChild(el);return el;
+function addTyping() {
+  const w = document.getElementById('chatWrap');
+  const el = document.createElement('div'); el.className = 'msg adam typing-wrap';
+  el.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  w.appendChild(el); return el;
 }
 
-function scrollBot(){const w=document.getElementById('chatWrap');w.scrollTop=w.scrollHeight}
+function scrollBot() { const w = document.getElementById('chatWrap'); w.scrollTop = w.scrollHeight; }
 
 // PHOTO
-function triggerPhoto(){document.getElementById('photoInput').click()}
-
-function handlePhoto(e){
-  const file=e.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=(ev)=>{
-    const b64=ev.target.result;
+function triggerPhoto() { document.getElementById('photoInput').click(); }
+function handlePhoto(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const b64 = ev.target.result;
     document.getElementById('emptyEl')?.remove();
-    addBubble('user','📷 foto',null,b64);
-    sendToADAM('lihat foto ini dan ceritakan apa yang kamu rasakan','📷 foto',b64);
+    addBubble('user', '📷 foto', null, b64);
+    sendToADAM('lihat foto ini dan ceritakan apa yang kamu rasakan', '📷 foto', b64);
   };
   reader.readAsDataURL(file);
-  e.target.value='';
+  e.target.value = '';
 }
 
 // FILE
-function triggerFile(){document.getElementById('fileInput').click()}
-
-function handleFile(e){
-  const file=e.target.files[0];if(!file)return;
-  sendToADAM(`[user mengirim file: ${file.name}]`,`📎 ${file.name}`);
-  e.target.value='';
+function triggerFile() { document.getElementById('fileInput').click(); }
+function handleFile(e) {
+  const file = e.target.files[0]; if (!file) return;
+  sendToADAM(`[user mengirim file: ${file.name}]`, `📎 ${file.name}`);
+  e.target.value = '';
 }
 
 // VOICE
-function triggerVoice(){
-  if(mediaRec&&mediaRec.state==='recording'){stopRecording();return;}
-  if(!navigator.mediaDevices){alert('Mikrofon tidak tersedia');return;}
-  navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
-    audioChunks=[];
-    mediaRec=new MediaRecorder(stream);
-    mediaRec.ondataavailable=e=>audioChunks.push(e.data);
-    mediaRec.onstop=()=>{
-      stream.getTracks().forEach(t=>t.stop());
-      const blob=new Blob(audioChunks,{type:'audio/webm'});
-      sendToADAM(`[user mengirim pesan suara ${recSecs}s]`,`🎙 ${recSecs}s`);
+function triggerVoice() {
+  if (mediaRec && mediaRec.state === 'recording') { stopRecording(); return; }
+  if (!navigator.mediaDevices) { alert('Mikrofon tidak tersedia'); return; }
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+    audioChunks = [];
+    mediaRec = new MediaRecorder(stream);
+    mediaRec.ondataavailable = e => audioChunks.push(e.data);
+    mediaRec.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      sendToADAM(`[user mengirim pesan suara ${recSecs}s]`, `🎙 ${recSecs}s`);
     };
     mediaRec.start();
-    recSecs=0;
+    recSecs = 0;
     document.getElementById('recBar').classList.add('active');
     document.getElementById('voiceBtn').classList.add('recording');
-    recInterval=setInterval(()=>{
+    recInterval = setInterval(() => {
       recSecs++;
-      document.getElementById('recTime').textContent=`RECORDING... ${recSecs}s`;
-    },1000);
-  }).catch(()=>alert('Izin mikrofon ditolak'));
+      document.getElementById('recTime').textContent = `RECORDING... ${recSecs}s`;
+    }, 1000);
+  }).catch(() => alert('Izin mikrofon ditolak'));
 }
 
-function stopRecording(){
-  if(mediaRec)mediaRec.stop();
+function stopRecording() {
+  if (mediaRec) mediaRec.stop();
   clearInterval(recInterval);
   document.getElementById('recBar').classList.remove('active');
   document.getElementById('voiceBtn').classList.remove('recording');
 }
 
 // STICKERS
-function toggleStickers(){
-  document.getElementById('stickerTray').classList.toggle('open');
-}
-function closeStickerTray(){
-  document.getElementById('stickerTray').classList.remove('open');
-}
+function toggleStickers() { document.getElementById('stickerTray').classList.toggle('open'); }
+function closeStickerTray() { document.getElementById('stickerTray').classList.remove('open'); }
 
 // CONTROLS
-async function doWake(){await post('/api/wake');setTimeout(fetchState,500)}
-async function doSleep(){await post('/api/sleep');setTimeout(fetchState,500)}
-async function doFocus(){await post('/api/focus');setTimeout(fetchState,500)}
-async function post(p){return fetch(`${HOST}${p}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID})})}
+async function doWake()  { await post('/api/wake');  setTimeout(fetchState, 500); }
+async function doSleep() { await post('/api/sleep'); setTimeout(fetchState, 500); }
+async function doFocus() { await post('/api/focus'); setTimeout(fetchState, 500); }
+async function post(p) {
+  return fetch(`${HOST}${p}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ session_id: SID })
+  });
+}
 
-function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg()}}
-function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,80)+'px'}
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); } }
+function autoResize(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 80) + 'px'; }
+
+// ── AUTO-LOAD SAAT BUKA ───────────────────────────────
+window.addEventListener('load', loadSaved);
 </script>
 </body>
 </html>
